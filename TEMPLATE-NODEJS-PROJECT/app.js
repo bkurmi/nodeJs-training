@@ -1,6 +1,7 @@
 const express = require('express')
 const routes = require('./routes/routes')
-const { connectToDB } = require('./util/database')
+const mongoose = require('mongoose');
+
 const app = express()
 const port = 3000
 
@@ -21,21 +22,17 @@ app.use((req, res, next) => {
 //associate all the routes in application like this
 app.use(routes)
 
-// Function to start the server
-async function startServer() {
-    try {
-      // Ensure the database connection is established
-      await connectToDB();
-      console.log('Database connected, starting server...');
-      
-      // Start the server
-      app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-      });
-    } catch (err) {
-      console.error('Failed to start server:', err);
-    }
-  }
 
-// Start the server
-startServer();
+mongoose
+  .connect(
+    "mongodb+srv://drl-amp:humza123@amp-cluster.r0obtny.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then((result) => {
+    console.log("DB Connection established, starting server ....");
+    app.listen(port, () => {
+      console.log("Application server started ... ");
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });

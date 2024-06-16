@@ -1,6 +1,5 @@
 const { nextTick } = require("process");
 const Product = require("../models/product");
-const { connectToDB } = require('../util/database')
 
 exports.saveProduct = async (req, res, next) => {
   const db = await connectToDB();
