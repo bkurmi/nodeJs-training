@@ -11,7 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware to log the complete request -NOT WORKING
 app.use((req, res, next) => {
-  console.log(req)
   console.log('Headers:', req.headers);
   console.log('Query:', req.query);
   console.log('Body:', req.body);
@@ -25,7 +24,7 @@ app.use(routes)
 
 mongoose
   .connect(
-    "mongodb+srv://drl-amp:humza123@amp-cluster.r0obtny.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://drl-amp:humza123@amp-cluster.r0obtny.mongodb.net/nodejs-training?retryWrites=true&w=majority"
   )
   .then((result) => {
     console.log("DB Connection established, starting server ....");

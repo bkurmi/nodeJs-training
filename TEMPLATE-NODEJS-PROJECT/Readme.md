@@ -7,7 +7,8 @@
     d. routes
 4. create model classes
     a. Create Constructor (if required)
-    b. write all the methods required to get/updatet he details of that model like save(), deleteById(), findById() etc. 
+    b. if not using Sequaliser for SQL or Mongooes for NOSQL than write all the methods required to get/updatet he details of that model like save(), deleteById(), findById() etc. 
+    c. if using mongoose, than write schemas and create model to link ModelName/MongoDB collection with the schema and export the same.
 5. import model in controller
 6. create routes.js file and create required routes
 7. write all logic inside respective controller js file and call all the methods inside the model for ant action on model attributes like to save, get, delete etc.

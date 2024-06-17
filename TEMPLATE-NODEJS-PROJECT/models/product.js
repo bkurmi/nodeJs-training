@@ -1,23 +1,21 @@
-module.exports = class Product {
-  constructor(id, productName, description) {
-    this.id = id;
-    this.productName = productName;
-    this.description = description;
-  }
+const mongoose = require('mongoose');
 
-  save(){
-    console.log("Assume that product has been saved");
-  }
+const Schema = mongoose.Schema;
 
-  static findById(id){
-        console.log("Assume that findById is working fine for given id = "+id);
+const productSchema = new Schema({
+  productName: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  productDescription: {
+    type: String,
+    required: false
+  },
+  productPrice: {
+    type : Number,
+    required: true
   }
+})
 
-  static deleteById(id){
-    console.log("Assume that deleteById is working fine for given id = " + id);
-  }
-
-  static updateById(id, product){
-    console.log("Assume that deleteById is working fine for given id = " + id);
-  }
-};
+module.exports = mongoose.model('Product', productSchema);
