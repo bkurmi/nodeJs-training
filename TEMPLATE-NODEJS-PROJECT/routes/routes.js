@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const productController = require("../controllers/product-controller");
 
+//For this route, we have middleware and now we can add as manymiddleware for this route separated by comma
+//router.post("/product", authMiddleware, logMiddleware, productController.saveProduct (this is also middleware) )
 router.post("/product", productController.saveProduct)
 
 router.get("/products/:productId",productController.getProductById )
