@@ -15,6 +15,10 @@ exports.saveProduct = (req, res, next) => {
     .save()
     .then((product) => {
       console.log(`Product saved successfully :: ${product.productName}`);
+      res.status(201).json({
+        message: "Product saved successfully!",
+        productId: product._id,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -26,6 +30,7 @@ exports.getProductById = (req, res, next) => {
   Product.findById(productId)
     .then((product) => {
       console.log(`product found : ${product}`);
+      res.status(200).json(product);
     })
     .catch((err) => {
       console.log(err);
@@ -37,6 +42,7 @@ exports.deleteProductById = (req, res, next) => {
   Product.findOneAndDelete(productId)
     .then((product) => {
       console.log(`product Deleted Successfully`);
+      res.status(204).send();
     })
     .catch((err) => {
       console.log(err);
@@ -54,6 +60,7 @@ exports.updateProductById = (req, res, next) => {
     })
     .then((product) => {
       console.log("Updated Successfully", product);
+      res.status(200).json(product);
     })
     .catch((error) => {
       console.log("UPDATE FAILED", error);
