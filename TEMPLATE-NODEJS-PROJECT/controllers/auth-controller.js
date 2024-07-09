@@ -8,7 +8,7 @@ exports.signUp = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const error = new Error('Validation failed.');
-    error.statusCode = 422;
+    error.statusCode = 400;
     error.title = 'VALIDATION_FAILED'
     error.data = errors.array(); //this is how we get error by default errors.array()
     throw error;
