@@ -5,9 +5,11 @@ const User = require("../models/user");
 
 exports.signUp = (req, res, next) => {
   //handle errors coming during request validation in router definition.
-  const error = validationResult(req);
-  if (!error.isEmpty()) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const error = new Error('Validation failed.');
     error.statusCode = 422;
+    error.title = 'VALIDATION_FAILED'
     error.data = errors.array(); //this is how we get error by default errors.array()
     throw error;
   }
