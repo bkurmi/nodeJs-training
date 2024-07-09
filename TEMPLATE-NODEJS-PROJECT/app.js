@@ -1,9 +1,10 @@
 const express = require("express");
-const routes = require("./routes/routes");
+const productRoutes = require("./routes/product-routes");
+const authRoutes = require("./routes/auth-routes");
 const mongoose = require("mongoose");
 
 const app = express();
-const port = 3000;
+const port = 8082;
 
 // Middleware to parse JSON and URL-encoded bodies
 app.use(express.json());
@@ -19,7 +20,8 @@ app.use((req, res, next) => {
 });
 
 //associate all the routes in application like this
-app.use(routes);
+app.use(productRoutes);
+app.use(authRoutes);
 
 //registering the middleware for error/exception handler
 app.use((error, req, res, next) => {
@@ -43,7 +45,7 @@ mongoose
   .then((result) => {
     console.log("DB Connection established, starting server ....");
     app.listen(port, () => {
-      console.log("Application server started ... ");
+      console.log("Application server started ... on port ", port);
     });
   })
   .catch((err) => {
