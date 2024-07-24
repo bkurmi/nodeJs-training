@@ -50,10 +50,7 @@ app.use((req, res, next) => {
   next();
 });
 
-<<<<<<< HEAD
 //GraphQl middleware
-=======
->>>>>>> 3ae598541fe39dffa5128baa727be135289ea8a1
 app.use(
   '/graphql',
   graphqlHttp({
