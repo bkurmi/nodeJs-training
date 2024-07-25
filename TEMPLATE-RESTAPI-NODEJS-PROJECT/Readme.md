@@ -14,3 +14,9 @@
 7. write all logic inside respective controller js file and call all the methods inside the model for ant action on model attributes like to save, get, delete etc.
 7. Update routes.js file to link controller to respective route
 8. test application from postman.
+
+
+
+Await Vs .Then approach
+------------------------
+Its totally your choice which pattern suits you more. with await, we mighten up with lesser code and with .then might help with more modular and clean code.
