@@ -20,3 +20,8 @@
 Await Vs .Then approach
 ------------------------
 Its totally your choice which pattern suits you more. with await, we mighten up with lesser code and with .then might help with more modular and clean code.
+
+
+Validation
+-------------
+We use express validator for the same and create middleware for that.

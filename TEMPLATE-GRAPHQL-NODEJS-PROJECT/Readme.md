@@ -25,3 +25,12 @@ Mutation Sample Request for Create User (User Signup)
         email
     }
     }
+
+
+Validation
+-------------
+We use Validator package for the same, and its simple moved to resolver.js instead of middleware.
+
+Error Handling
+-----------------
+Use formatError in app.js in graphql middleware.
