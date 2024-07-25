@@ -11,10 +11,10 @@ GRAPHIQL - Alternative of Postman to work with GraphQl
 http://localhost:8082/graphql
 Query Sample Request:
     query{
-    hello{
-        text
-        views
-    }
+        hello{
+            text
+            views
+        }
     }
 
 Mutation Sample Request for Create User (User Signup)
